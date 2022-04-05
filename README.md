@@ -2,16 +2,16 @@
 
 ## users テーブル
 
-| Column             | Type   | Options                   |
-| ------------------ | ------ | ------------------------- |
-| nickname           | string | null: false               |
-| email              | string | null: false, unique: true |
-| encrypted_password | string | null: false               |
-| first_name         | string | null: false               |
-| last_name          | string | null: false               |
-| first_name_kana    | string | null: false               |
-| last_name_kana     | string | null: false               |
-| birthday           | string | null: false               |
+| Column             | Type     | Options                   |
+| ------------------ | -------- | ------------------------- |
+| nickname           | string   | null: false               |
+| email              | string   | null: false, unique: true |
+| encrypted_password | string   | null: false               |
+| first_name         | string   | null: false               |
+| last_name          | string   | null: false               |
+| first_name_kana    | string   | null: false               |
+| last_name_kana     | string   | null: false               |
+| birthday           | datetime | null: false               |
 
 ### Association
 - has_many :items
@@ -24,11 +24,11 @@
 | name             | string     | null: false                    |
 | description      | text       | null: false                    |
 | category_id      | integer    | null: false                    |
-| state_id         | integer    | null: false                    |
+| status_id        | integer    | null: false                    |
 | postage_id       | integer    | null: false                    |
 | prefecture_id    | integer    | null: false                    |
 | delivery_time_id | integer    | null: false                    |
-| price            | string     | null: false                    |
+| price            | integer     | null: false                    |
 | user             | references | null: false, foreign_key: true |
 
 ### Association
@@ -39,7 +39,7 @@
 
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
-| item      | string     | null: false                    |
+| item      | string     | null: false, foreign_key: true |
 | user      | references | null: false, foreign_key: true |
 
 ### Association
@@ -57,7 +57,7 @@
 | block         | string     | null: false                    |
 | building      | string     |                                |
 | phone_number  | string     | null: false                    |
-| user          | string     | null: false, foreign_key: true |
+| order         | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :order
