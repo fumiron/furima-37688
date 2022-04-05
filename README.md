@@ -11,7 +11,7 @@
 | last_name          | string   | null: false               |
 | first_name_kana    | string   | null: false               |
 | last_name_kana     | string   | null: false               |
-| birthday           | datetime | null: false               |
+| birthday           | date     | null: false               |
 
 ### Association
 - has_many :items
@@ -39,7 +39,7 @@
 
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
-| item      | string     | null: false, foreign_key: true |
+| item      | references | null: false, foreign_key: true |
 | user      | references | null: false, foreign_key: true |
 
 ### Association
