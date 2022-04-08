@@ -1,4 +1,4 @@
-class postage < ActiveHash::Base
+class Postage < ActiveHash::Base
 
   self.data = [
     { id: 1, name: '--' },
