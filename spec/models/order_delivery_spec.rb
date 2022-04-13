@@ -16,7 +16,7 @@ RSpec.describe OrderDelivery, type: :model do
     end
     context '配送先情報の保存ができないとき' do
       it 'postcodeが空では保存できない' do
-        @order_delivery.postcode = nil
+        @order_delivery.postcode = ""
         @order_delivery.valid?
         expect(@order_delivery.errors.full_messages).to include("Postcode can't be blank", "Postcode is invalid")
       end
@@ -46,7 +46,7 @@ RSpec.describe OrderDelivery, type: :model do
         expect(@order_delivery.errors.full_messages).to include("Block can't be blank")
       end
       it 'phone_numberが空では保存できない' do
-        @order_delivery.phone_number = nil
+        @order_delivery.phone_number = ""
         @order_delivery.valid?
         expect(@order_delivery.errors.full_messages).to include("Phone number can't be blank", "Phone number is invalid")
       end
@@ -54,6 +54,11 @@ RSpec.describe OrderDelivery, type: :model do
         @order_delivery.phone_number = "123-456-789"
         @order_delivery.valid?
         expect(@order_delivery.errors.full_messages).to include("Phone number is invalid")
+      end
+      it 'tokenが空では保存できない' do
+        @order_delivery.token = ""
+        @order_delivery.valid?
+        expect(@order_delivery.errors.full_messages).to include("Token can't be blank")
       end
     end
   end
