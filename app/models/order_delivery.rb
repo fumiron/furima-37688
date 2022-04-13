@@ -8,7 +8,7 @@ class OrderDelivery
   validates :city,          presence: true
   validates :block,         presence: true
   validates :phone_number,  presence: true, format: { with: /\A\d{10,11}\z/ }
-  
+  validates :token, presence: true
 
   def save
     @order_delivery = Order.create(user_id: user_id,item_id: item_id)
