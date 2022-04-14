@@ -21,7 +21,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @delivery = Delivery.new
   end
 
   def edit
