@@ -15,10 +15,20 @@ RSpec.describe OrderDelivery, type: :model do
       end
     end
     context '配送先情報の保存ができないとき' do
+      it 'user_idが空では保存できない' do
+        @order_delivery.user_id = ''
+        @order_delivery.valid?
+        expect(@order_delivery.errors.full_messages).to include("User can't be blank")
+      end
+      it 'Item_idが空では保存できない' do
+        @order_delivery.item_id = ''
+        @order_delivery.valid?
+        expect(@order_delivery.errors.full_messages).to include("Item can't be blank")
+      end
       it 'postcodeが空では保存できない' do
         @order_delivery.postcode = ''
         @order_delivery.valid?
-        expect(@order_delivery.errors.full_messages).to include("Postcode can't be blank", 'Postcode is invalid')
+        expect(@order_delivery.errors.full_messages).to include("Postcode can't be blank")
       end
       it 'postcodeが「3桁ハイフン4桁」の半角文字列以外は保存できない' do
         @order_delivery.postcode = '2222-444'
