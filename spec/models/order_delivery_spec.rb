@@ -40,11 +40,6 @@ RSpec.describe OrderDelivery, type: :model do
         @order_delivery.valid?
         expect(@order_delivery.errors.full_messages).to include("Block can't be blank")
       end
-      it 'blockが空では保存できない' do
-        @order_delivery.block = ''
-        @order_delivery.valid?
-        expect(@order_delivery.errors.full_messages).to include("Block can't be blank")
-      end
       it 'phone_numberが空では保存できない' do
         @order_delivery.phone_number = ''
         @order_delivery.valid?
