@@ -43,7 +43,7 @@ RSpec.describe OrderDelivery, type: :model do
       it 'phone_numberが空では保存できない' do
         @order_delivery.phone_number = ''
         @order_delivery.valid?
-        expect(@order_delivery.errors.full_messages).to include("Phone number can't be blank", 'Phone number is invalid')
+        expect(@order_delivery.errors.full_messages).to include("Phone number can't be blank")
       end
       it 'phone_numberが10桁以上11桁以内の半角数値以外は保存できない' do
         @order_delivery.phone_number = '123-456-789'
